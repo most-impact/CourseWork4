@@ -37,7 +37,7 @@ class JSONSaver(FileVacancy):
         except (FileNotFoundError, json.JSONDecodeError):
             vacancies = []
 
-        vacancies = [vacancy for vacancy in vacancies if request in vacancy['name']]
+        vacancies = [vacancy for vacancy in vacancies if request in vacancy["name"]]
         return vacancies
 
     def delete_vacancy(self, vacancy):
