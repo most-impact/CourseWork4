@@ -18,6 +18,6 @@ class HeadHunterAPI(ApiService):
         params = {"text": search_request, "per_page": 20}
         response = requests.get(self.url, params=params)
         if response.status_code == 200:
-            return response
+            return response.json()
         else:
             raise Exception(f"Ошибка подключения: {response.status_code}")

@@ -1,18 +1,18 @@
 class Vacancy:
 
-    def __init__(self, vacancy, link_to_vacancy, salary, description):
-        self.__description = description
-        self.__link_to_vacancy = link_to_vacancy
+    def __init__(self, name, salary, snippet, area):
+        self.__name = name
         self.__salary = salary
-        self.__vacancy = vacancy
+        self.__snippet = snippet
+        self.__area = area
 
     @property
-    def vacancy(self):
-        return self.__vacancy
+    def name(self):
+        return self.__name
 
-    @vacancy.setter
-    def vacancy(self, vacancy):
-        self.__vacancy = vacancy
+    @name.setter
+    def name(self, name):
+        self.__name = name
 
     @property
     def salary(self):
@@ -20,30 +20,59 @@ class Vacancy:
 
     @salary.setter
     def salary(self, salary):
-        if salary < 0 or salary is None:
+        if type(salary) is int or salary < 0:
             self.__salary = 0
         else:
             self.__salary = salary
 
     @property
-    def link_to_vacancy(self):
-        return self.__link_to_vacancy
+    def snippet(self):
+        return self.__snippet
 
-    @link_to_vacancy.setter
-    def link_to_vacancy(self, link_to_vacancy):
-        self.__link_to_vacancy = link_to_vacancy
+    @snippet.setter
+    def snippet(self, snippet):
+        self.__snippet = snippet
 
     @property
-    def description(self):
-        return self.__description
+    def area(self):
+        return self.__area
 
-    @description.setter
-    def description(self, description):
-        self.__description = description
+    @area.setter
+    def area(self, area):
+        self.__area = area
 
     def __str__(self):
-        return f"{self.__vacancy} - {self.__salary}"
+        return f"{self.__name} - {self.__salary['to']}"
+
+    @classmethod
+    def new_vacancy(cls, vacancy_info):
+        return cls(
+            vacancy_info["name"],
+            vacancy_info["salary"],
+            vacancy_info["snippet"]["requirement"],
+            vacancy_info["area"]["name"],
+        )
 
     @staticmethod
-    def cast_to_object_list(vacancies):
-        return vacancies.json()["items"]
+    def get_vacancies_by_salary(filtered_vacancies, salary_range):
+        result = []
+        for vacancy in filtered_vacancies:
+            if vacancy.salary is not None and vacancy.salary["from"] is not None:
+                if salary_range[0] <= vacancy.salary["from"] <= salary_range[1]:
+                    result.append(vacancy)
+        return result
+
+    @staticmethod
+    def sort_vacancies(ranged_vacancies):
+        return sorted(
+            ranged_vacancies, key=lambda vacancy: vacancy.salary["from"], reverse=True
+        )
+
+    @staticmethod
+    def get_top_vacancies(sorted_vacancies, top_n):
+        return sorted_vacancies[:top_n]
+
+    @staticmethod
+    def print_vacancies(top_vacancies):
+        for i in top_vacancies:
+            print(i)

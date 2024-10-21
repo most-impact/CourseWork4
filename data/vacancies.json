@@ -4,5 +4,60 @@
         "_Vacancy__link_to_vacancy": "<https://hh.ru/vacancy/123456>",
         "_Vacancy__salary": "100 000-150 000 руб.",
         "_Vacancy__vacancy": "Python Developer1"
+    },
+    {
+        "_Vacancy__name": "Frontend-разработчик",
+        "_Vacancy__salary": {
+            "from": 10000000,
+            "to": null,
+            "currency": "UZS",
+            "gross": true
+        },
+        "_Vacancy__snippet": "Опыт работы во Frontend-разработке от 3 лет. Уверенное знание Angular (2+ версия). Знание Vue - React будет преимуществом. ",
+        "_Vacancy__area": "Ташкент"
+    },
+    {
+        "_Vacancy__name": "Frontend разработчик (Phoenix IT Consulting)",
+        "_Vacancy__salary": {
+            "from": 3000000,
+            "to": 7000000,
+            "currency": "UZS",
+            "gross": true
+        },
+        "_Vacancy__snippet": "Опыт работы от 2-3 лет в коммерческих проектах. Хорошие знания HTML5, CSS3, REACT, JS, AXIOS, SASS, BOOTSTRAP. ",
+        "_Vacancy__area": "Ташкент"
+    },
+    {
+        "_Vacancy__name": "Верстальщик/frontend разработчик",
+        "_Vacancy__salary": {
+            "from": 2000000,
+            "to": 4000000,
+            "currency": "UZS",
+            "gross": false
+        },
+        "_Vacancy__snippet": "Мы ищем трудолюбивых <highlighttext>программистов</highlighttext> или верстальщиков с опытом работы более 1 года с хорошими знаниями: HTHL5, CSS3, Bootsrap...",
+        "_Vacancy__area": "Ташкент"
+    },
+    {
+        "_Vacancy__name": "Web разработчик / Frontend-Разработчик",
+        "_Vacancy__salary": {
+            "from": 250000,
+            "to": 300000,
+            "currency": "KZT",
+            "gross": false
+        },
+        "_Vacancy__snippet": "Отличное знание HTML/HTML5, CSS/CSS3 (SASS/SCSS). Знание JavaScript. Опыт работы с фреймворками/библиотеками, такими как JQuery...",
+        "_Vacancy__area": "Алматы"
+    },
+    {
+        "_Vacancy__name": "Инженер-тестировщик ПО / Middle QA-engineer",
+        "_Vacancy__salary": {
+            "from": 150000,
+            "to": null,
+            "currency": "RUR",
+            "gross": true
+        },
+        "_Vacancy__snippet": "Опыт работы QA - не менее 3х лет. Опыт работы с системой контроля версий Git. Опыт взаимодействия с командой разработки. ",
+        "_Vacancy__area": "Москва"
     }
 ]

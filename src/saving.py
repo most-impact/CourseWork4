@@ -8,7 +8,7 @@ class FileVacancy(ABC):
         pass
 
     @abstractmethod
-    def get_vacancy_by_request(self):
+    def get_vacancy_by_request(self, request):
         pass
 
     @abstractmethod
@@ -30,8 +30,15 @@ class JSONSaver(FileVacancy):
         with open("data/vacancies.json", "w", encoding="utf-8") as file:
             json.dump(vacancies, file, ensure_ascii=False, indent=4)
 
-    def get_vacancy_by_request(self):
-        pass
+    def get_vacancy_by_request(self, request):
+        try:
+            with open("data/vacancies.json", "r", encoding="utf-8") as file:
+                vacancies = json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            vacancies = []
+
+        vacancies = [vacancy for vacancy in vacancies if request in vacancy['name']]
+        return vacancies
 
     def delete_vacancy(self, vacancy):
         try:
